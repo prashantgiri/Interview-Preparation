@@ -1,0 +1,357 @@
+✅ Top 100 JavaScript Interview Questions (2025 Ready)
+
+1️⃣ Core JavaScript Fundamentals
+
+1. What is JavaScript, and how is it different from Java?
+
+
+2. Explain the concept of hoisting.
+
+
+3. Difference between var, let, and const.
+
+
+4. What is the Temporal Dead Zone (TDZ)?
+
+
+5. What are primitive and non-primitive data types?
+
+
+6. Explain pass-by-value vs pass-by-reference.
+
+
+7. What is an execution context?
+
+
+8. What is the call stack?
+
+
+9. Explain the event loop.
+
+
+10. What are closures?
+
+
+11. What is lexical scope?
+
+
+12. What is a callback function?
+
+
+13. What is implicit and explicit type coercion?
+
+
+14. Difference between == and ===.
+
+
+15. What is NaN? How to check if a value is NaN?
+
+
+16. What is typeof null output and why?
+
+
+17. What is a pure function?
+
+
+18. What is immutability?
+
+
+19. What are higher-order functions?
+
+
+20. What is the difference between function declaration and function expression?
+
+
+
+
+---
+
+2️⃣ ES6+ / Modern JavaScript
+
+21. What are arrow functions?
+
+
+22. Difference between arrow functions and normal functions.
+
+
+23. What is the spread operator?
+
+
+24. What is the rest operator?
+
+
+25. What is destructuring?
+
+
+26. What are template literals?
+
+
+27. Explain Map vs WeakMap.
+
+
+28. Explain Set vs WeakSet.
+
+
+29. What are JavaScript modules?
+
+
+30. What is the difference between default and named exports?
+
+
+31. What are generators?
+
+
+32. What is Symbol in JavaScript?
+
+
+33. What is optional chaining?
+
+
+34. What is nullish coalescing (??)?
+
+
+35. What is BigInt?
+
+
+
+
+---
+
+3️⃣ Asynchronous JavaScript
+
+36. What are Promises?
+
+
+37. Promise states & lifecycle.
+
+
+38. What is async/await?
+
+
+39. Difference between synchronous vs asynchronous programming.
+
+
+40. What is a microtask queue?
+
+
+41. Difference between macrotask & microtask.
+
+
+42. What is Promise.all, Promise.race, Promise.any, Promise.allSettled?
+
+
+43. How does fetch work?
+
+
+44. What is CORS?
+
+
+45. What is JSONP?
+
+
+46. What is debouncing?
+
+
+47. What is throttling?
+
+
+48. What is the event loop starvation problem?
+
+
+
+
+---
+
+4️⃣ DOM & Browser APIs
+
+49. What is DOM?
+
+
+50. What is event bubbling?
+
+
+51. What is event capturing?
+
+
+52. What is event delegation?
+
+
+53. Difference between innerHTML and textContent.
+
+
+54. How to prevent default behaviour in events?
+
+
+55. What is LocalStorage?
+
+
+56. What is SessionStorage?
+
+
+57. Difference between cookies, localStorage, and sessionStorage.
+
+
+58. What is the History API?
+
+
+59. What are Web Workers?
+
+
+60. What is the Shadow DOM?
+
+
+61. What is requestAnimationFrame?
+
+
+
+
+---
+
+5️⃣ Object-Oriented JavaScript
+
+62. What is prototypal inheritance?
+
+
+63. What is the prototype chain?
+
+
+64. Difference between class & prototype.
+
+
+65. What is a constructor function?
+
+
+66. What are getters and setters?
+
+
+67. Explain static methods in classes.
+
+
+68. What is the super keyword?
+
+
+69. Difference between Object.freeze and Object.seal.
+
+
+70. What is object destructuring?
+
+
+
+
+---
+
+6️⃣ Error Handling & Debugging
+
+71. What is a try–catch block?
+
+
+72. What is the finally block?
+
+
+73. What is error bubbling?
+
+
+74. How to create custom errors?
+
+
+75. What is stack trace?
+
+
+
+
+---
+
+7️⃣ Performance & Memory
+
+76. What is memory leak?
+
+
+77. Types of memory leaks in JavaScript.
+
+
+78. What is garbage collection?
+
+
+79. Difference between mark-and-sweep vs reference counting.
+
+
+80. How to optimize JS performance?
+
+
+
+
+---
+
+8️⃣ Functional Programming
+
+81. What is currying?
+
+
+82. What is memoization?
+
+
+83. What is composition in functional programming?
+
+
+84. Difference between map, filter, reduce.
+
+
+85. What is a reducer function?
+
+
+
+
+---
+
+9️⃣ Security Concepts
+
+86. What is XSS?
+
+
+87. What is CSRF?
+
+
+88. What is the Same-Origin Policy?
+
+
+89. What is Content Security Policy (CSP)?
+
+
+
+
+---
+
+🔟 Coding/Algorithm Based Questions
+
+90. Reverse a string without using built-ins.
+
+
+91. Check if a string is a palindrome.
+
+
+92. Find the largest number in an array.
+
+
+93. Remove duplicates from an array.
+
+
+94. Flatten a nested array.
+
+
+95. Write a map() polyfill.
+
+
+96. Write a filter() polyfill.
+
+
+97. Write a reduce() polyfill.
+
+
+98. Implement debouncing.
+
+
+99. Implement throttling.
+
+
+100. Deep clone vs shallow clone — write code examples.
+
