@@ -2823,7 +2823,7 @@ console.log(store)
 console.log(store(5))
 =========================================================================
 Call, apply and bind:
-var userDetails ={
+var userDetails = {
   name: "manisha",
   age: 100,
   role: "Software Developer",
