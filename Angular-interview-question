@@ -1,4 +1,283 @@
-Angular interview question: 
+HTTP Protocal:============================================>
+🌐 HTTP Protocol — Interview Questions & Answers
+
+1) Basics of HTTP
+Q1. What is HTTP?
+HTTP (HyperText Transfer Protocol) is an application-layer protocol used for communication between client (browser/app) and server on the web.
+
+It follows a request → response model.
+
+Q2. What is HTTPS?
+	HTTPS = HTTP + SSL/TLS encryption
+	It provides:
+		Data encryption
+		Data integrity
+		Authentication
+	👉 Prevents Man-in-the-Middle attacks
+
+Q3. Difference: HTTP vs HTTPS
+	Feature			HTTP				HTTPS
+	Security		❌ Not secure		✅ Encrypted
+	Port			80					443
+	SSL Certificate	Not required		Required
+	Speed			Faster				Slightly slower
+	SEO				Lower				Higher ranking
+
+Q4. What is a URL?
+	Uniform Resource Locator — address of a resource.
+	Example:
+	https://api.example.com:443/users?id=10#profile
+	Parts:
+	Protocol → https
+	Domain → api.example.com
+	Port → 443
+	Path → /users
+	Query → ?id=10
+	Fragment → #profile
+
+Q5. What is a client and server?
+	Client → Browser / Mobile App / Postman
+	Server → Backend application
+
+Q6. Structure of HTTP Request
+	GET /users HTTP/1.1
+	Host: example.com
+	Authorization: Bearer token
+	Content-Type: application/json
+	Body (optional):
+	{
+	  "name":"Prashant"
+	}
+
+Q7. Structure of HTTP Response
+	HTTP/1.1 200 OK
+	Content-Type: application/json
+	Content-Length: 45
+	Body:
+	{
+	  "id": 1,
+	  "name": "Prashant"
+	}
+
+Q8. What is stateless protocol?
+	HTTP does NOT remember previous request.
+	Each request is independent.
+	👉 That’s why we use:
+	Cookies
+	Sessions
+	Tokens (JWT)
+
+3) HTTP Methods (Very Important)
+Q9. List all HTTP methods
+	Method		Purpose
+	GET			Fetch data
+	POST		Create data
+	PUT			Replace data
+	PATCH		Update partial
+	DELETE		Remove data
+	HEAD		Headers only
+	OPTIONS		Allowed methods
+	TRACE		Debugging
+
+Q10. Difference: PUT vs PATCH
+	PUT						PATCH
+	Full update				Partial update
+	Replaces entire object	Updates only fields
+	
+	Idempotent	Idempotent
+	Example:
+		PUT
+		{
+		 name:"A",
+		 age:20
+		}
+
+		PATCH
+		{
+		 age:25
+		}
+
+Q11. Idempotent methods
+		Multiple identical requests → same result
+		Idempotent:
+		GET, PUT, DELETE, HEAD, OPTIONS
+
+		Non-idempotent:
+		POST
+
+4) HTTP Status Codes (VERY IMPORTANT)
+	1xx — Informational
+		100 Continue
+
+	2xx — Success
+		Code	Meaning
+		200	OK
+		201	Created
+		204	No Content
+
+	3xx — Redirection
+		Code	Meaning
+		301	Permanent redirect
+		302	Temporary redirect
+		304	Not modified (cache)
+
+	4xx — Client Errors
+		Code	Meaning
+		400	Bad request
+		401	Unauthorized
+		403	Forbidden
+		404	Not found
+		409	Conflict
+		422	Validation error
+		429	Too many requests
+
+	5xx — Server Errors
+		Code	Meaning
+		500	Internal error
+		502	Bad gateway
+		503	Service unavailable
+		504	Gateway timeout
+	
+	Q12. 401 vs 403
+		401 → Not logged in
+		403 → Logged in but no permission
+
+5) Headers
+	Q13. What are HTTP headers?
+	Metadata about request/response
+
+	Common Request Headers
+		Authorization
+		Content-Type
+		Accept
+		User-Agent
+		Cookie
+		Origin
+		Common Response Headers
+		Set-Cookie
+		Cache-Control
+		ETag
+		Location
+		Content-Length
+		Access-Control-Allow-Origin
+
+6) Authentication & Security
+
+	Q14. What is Authorization header?
+		Authorization: Bearer <JWT_TOKEN>
+
+	Q15. What are Cookies?
+		Stored in browser automatically sent with each request.
+		Used for:
+		Sessions
+		Tracking
+
+	Q16. Session vs Token (JWT)
+		Session				JWT
+		Stored on server	Stored on client
+		Needs DB lookup		Stateless
+		More secure			More scalable
+
+7) Caching
+
+	Q17. What is HTTP caching?
+		Browser stores response to avoid server call.
+
+	Q18. Cache Headers
+		Cache-Control: max-age=3600
+		ETag: "abc123"
+		Last-Modified: Wed, 21 Oct 2025
+
+	Q19. What is 304 Not Modified?
+		Server tells browser:
+		👉 Use cached version
+
+8) CORS (Frontend Favorite Question)
+	Q20. What is CORS?
+		Cross Origin Resource Sharing
+		Browser blocks request if:
+		Frontend: http://localhost:4200
+		Backend: http://api.com
+
+	Q21. Preflight request
+		Browser sends OPTIONS request first.
+
+	Q22. How to fix CORS?
+		Backend must send:
+		Access-Control-Allow-Origin: *
+		Access-Control-Allow-Methods: GET,POST
+		Access-Control-Allow-Headers: Content-Type
+
+9) REST API Concepts
+
+	Q23. REST principles
+		Stateless
+		Client-Server
+		Cacheable
+		Uniform interface
+
+	Q24. Good REST naming
+		❌ /getUsers
+		✅ /users
+
+	Q25. Pagination
+		GET /users?page=1&limit=10
+		10) Advanced Concepts
+	Q26. What is Keep-Alive?
+		Reuse TCP connection for multiple requests
+
+	Q27. HTTP/1.1 vs HTTP/2 vs HTTP/3
+		Version	Feature
+		HTTP/1.1	Sequential requests
+		HTTP/2	Multiplexing
+		HTTP/3	Uses QUIC (UDP), fastest
+
+	Q28. What is chunked transfer encoding?
+		Server sends response in parts (streaming).
+
+	Q29. What is Content Negotiation?
+		Client asks format:
+		Accept: application/json
+		Accept: text/html
+
+	Q30. What is Rate Limiting?
+		Prevent API abuse:
+		429 Too Many Requests
+
+11) Practical Frontend Questions
+	Q31. GET with body allowed?
+		❌ Not recommended (ignored by browsers)
+
+	Q32. Why POST for login?
+		Sensitive data → body (not URL)
+
+	Q33. Why 204 after DELETE?
+		No data to return
+
+	Q34. Retry failed request?
+		Retry only for idempotent methods
+
+	Q35. Safe methods
+		GET, HEAD → no data modification
+
+12) Cookies Security
+	Flag		Purpose
+	HttpOnly	No JS access
+	Secure		HTTPS only
+	SameSite	Prevent CSRF
+
+⭐ Most Important Interview Questions (Top 10)
+	PUT vs PATCH
+	401 vs 403
+	CORS & preflight
+	Stateless meaning
+	Idempotent methods
+	HTTP vs HTTPS
+	Cookies vs JWT
+	Status code categories
+	Cache & 304
+	REST naming conventions
+
 
 Javascript  :=============================================>
 	
@@ -1818,9 +2097,6 @@ Angular Interview Questions (Version 16+):
 1️5. What steps would you take to diagnose and fix a performance issue in a large Angular application?
 
 
-
-
-
 Interview
 
 *ngIf vs hidden property?
@@ -2224,18 +2500,64 @@ eventCapure/eventBubling
 		}
 
 	*Write a function to convert a string to camelCase. 	
-		
+
+		let input = 'hello-world_string example';
+
+		///[-_\s]+/ => this regular expresion detect space, - (dash), _ (underscore)
+		let op = input.split(/[-_\s]+/).reduce((acc, cur, currentIndex) => { 
+			if (currentIndex == 0) {
+			  cur = cur.toLowerCase();
+			}else{
+			  cur = cur.charAt(0).toUpperCase() + cur.slice(1);
+			}
+			return acc+=cur
+		}, '');
+
+		console.log(op);
+		//console.log(toCamelCase("hello world"));           // "helloWorld"
+		//console.log(toCamelCase("hello-world"));           // "helloWorld"
+		//console.log(toCamelCase("hello_world"));           // "helloWorld"
+		//console.log(toCamelCase("Hello World"));           // "helloWorld"
+		//console.log(toCamelCase("my-variable-name"));      // "myVariableName"
+		//console.log(toCamelCase("user_first_name"));       // "userFirstName"
+		//console.log(toCamelCase("CSS-selector"));          // "cssSelector"
 
 	*Implement a memoization function.
 
 	*Write your own version of Array.prototype.map.
 
 	*Write a function to generate the Fibonacci sequence up to n numbers.
+		//0 1 1 2 3 5 8 13....
+		function fib(n){
+		  let a = 0, b = 1;
+		  console.log(a);
+		  console.log(b);
+		  for (let i = 2; i <= n; i++) {
+			let temp = a+b;
+			a = b;
+			b = temp;
+			console.log(b)
+		  }
+		}
+		fib(40);
 
 	*Implement an LRU cache.
 
 	*Write a function to find the first non-repeating character in a string.
+	
+		 Ans: const firstNonRepeatingChar = str => [...str].find(char => str.indexOf(char) === str.lastIndexOf(char)) || null;
+		
+		Explaination: 
+		.find() loops through the array and returns the first element where the condition is true
+		char is each character in the array
+		str.indexOf(char) finds the FIRST occurrence position of the character
+		str.lastIndexOf(char) finds the LAST occurrence position of the character
 
+		How the condition works:
+		If first and last positions are the SAME → character appears only once
+		If first and last positions are DIFFERENT → character repeats
+
+			
 	*Write a function to shuffle an array randomly.
 
 🔹 Advanced Level
@@ -2286,10 +2608,6 @@ Ans : This is easy sorting Quick sort  O(n log n);
 	}
 
 	console.log(sortWithoutSortMethod(firstNames));
-
-
-
-
 
 
 ======================================================================================================================================================================================
