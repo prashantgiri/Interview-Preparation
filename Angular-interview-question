@@ -2,70 +2,69 @@ HTTP Protocal:============================================>
 🌐 HTTP Protocol — Interview Questions & Answers
 
 1) Basics of HTTP
-Q1. What is HTTP?
-HTTP (HyperText Transfer Protocol) is an application-layer protocol used for communication between client (browser/app) and server on the web.
+	Q1. What is HTTP?
+	HTTP (HyperText Transfer Protocol) is an application-layer protocol used for communication between client (browser/app) and server on the web.
+	It follows a request → response model.
 
-It follows a request → response model.
+	Q2. What is HTTPS?
+		HTTPS = HTTP + SSL/TLS encryption
+		It provides:
+			Data encryption
+			Data integrity
+			Authentication
+			👉 Prevents Man-in-the-Middle attacks
 
-Q2. What is HTTPS?
-	HTTPS = HTTP + SSL/TLS encryption
-	It provides:
-		Data encryption
-		Data integrity
-		Authentication
-	👉 Prevents Man-in-the-Middle attacks
+	Q3. Difference: HTTP vs HTTPS
+		Feature			HTTP				HTTPS
+		Security		❌ Not secure		✅ Encrypted
+		Port			80					443
+		SSL Certificate	Not required		Required
+		Speed			Faster				Slightly slower
+		SEO				Lower				Higher ranking
 
-Q3. Difference: HTTP vs HTTPS
-	Feature			HTTP				HTTPS
-	Security		❌ Not secure		✅ Encrypted
-	Port			80					443
-	SSL Certificate	Not required		Required
-	Speed			Faster				Slightly slower
-	SEO				Lower				Higher ranking
+	Q4. What is a URL?
+		Uniform Resource Locator — address of a resource.
+		Example:
+		https://api.example.com:443/users?id=10#profile
+		Parts:
+		Protocol → https
+		Domain → api.example.com
+		Port → 443
+		Path → /users
+		Query → ?id=10
+		Fragment → #profile
 
-Q4. What is a URL?
-	Uniform Resource Locator — address of a resource.
-	Example:
-	https://api.example.com:443/users?id=10#profile
-	Parts:
-	Protocol → https
-	Domain → api.example.com
-	Port → 443
-	Path → /users
-	Query → ?id=10
-	Fragment → #profile
+	Q5. What is a client and server?
+		Client → Browser / Mobile App / Postman
+		Server → Backend application
 
-Q5. What is a client and server?
-	Client → Browser / Mobile App / Postman
-	Server → Backend application
+	Q6. Structure of HTTP Request
+		GET /users HTTP/1.1
+		Host: example.com
+		Authorization: Bearer token
+		Content-Type: application/json
+		Body (optional):
+		{
+		  "name":"Prashant"
+		}
 
-Q6. Structure of HTTP Request
-	GET /users HTTP/1.1
-	Host: example.com
-	Authorization: Bearer token
-	Content-Type: application/json
-	Body (optional):
-	{
-	  "name":"Prashant"
-	}
+	Q7. Structure of HTTP Response
+		HTTP/1.1 200 OK
+		Content-Type: application/json
+		Content-Length: 45
+		Body:
+		{
+		  "id": 1,
+		  "name": "Prashant"
+		}
 
-Q7. Structure of HTTP Response
-	HTTP/1.1 200 OK
-	Content-Type: application/json
-	Content-Length: 45
-	Body:
-	{
-	  "id": 1,
-	  "name": "Prashant"
-	}
-
-Q8. What is stateless protocol?
-	HTTP does NOT remember previous request.
-	Each request is independent.
-	👉 That’s why we use:
-	Cookies
-	Sessions
-	Tokens (JWT)
+	Q8. What is stateless protocol?
+		HTTP does NOT remember previous request.
+		Each request is independent.
+		👉 That’s why we use:
+		Cookies
+		Sessions
+		Tokens (JWT)
 
 3) HTTP Methods (Very Important)
 Q9. List all HTTP methods
@@ -100,10 +99,9 @@ Q10. Difference: PUT vs PATCH
 Q11. Idempotent methods
 		Multiple identical requests → same result
 		Idempotent:
-		GET, PUT, DELETE, HEAD, OPTIONS
-
+			GET, PUT, DELETE, HEAD, OPTIONS
 		Non-idempotent:
-		POST
+			POST
 
 4) HTTP Status Codes (VERY IMPORTANT)
 	1xx — Informational
@@ -168,9 +166,7 @@ Q11. Idempotent methods
 
 	Q15. What are Cookies?
 		Stored in browser automatically sent with each request.
-		Used for:
-		Sessions
-		Tracking
+		Used for:SessionsTracking
 
 	Q16. Session vs Token (JWT)
 		Session				JWT
@@ -189,8 +185,7 @@ Q11. Idempotent methods
 		Last-Modified: Wed, 21 Oct 2025
 
 	Q19. What is 304 Not Modified?
-		Server tells browser:
-		👉 Use cached version
+		Server tells browser: 👉 Use cached version
 
 8) CORS (Frontend Favorite Question)
 	Q20. What is CORS?
@@ -217,20 +212,20 @@ Q11. Idempotent methods
 		Uniform interface
 
 	Q24. Good REST naming
-		❌ /getUsers
-		✅ /users
+		❌ /getUsers ✅ /users
 
 	Q25. Pagination
 		GET /users?page=1&limit=10
 		10) Advanced Concepts
+		
 	Q26. What is Keep-Alive?
 		Reuse TCP connection for multiple requests
 
 	Q27. HTTP/1.1 vs HTTP/2 vs HTTP/3
-		Version	Feature
+		Version		Feature
 		HTTP/1.1	Sequential requests
-		HTTP/2	Multiplexing
-		HTTP/3	Uses QUIC (UDP), fastest
+		HTTP/2	  	Multiplexing
+		HTTP/3		Uses QUIC (UDP), fastest
 
 	Q28. What is chunked transfer encoding?
 		Server sends response in parts (streaming).
@@ -245,6 +240,7 @@ Q11. Idempotent methods
 		429 Too Many Requests
 
 11) Practical Frontend Questions
+
 	Q31. GET with body allowed?
 		❌ Not recommended (ignored by browsers)
 
@@ -2581,6 +2577,49 @@ eventCapure/eventBubling
 	*Write a function to deep compare two objects.
 
 	*Write a function to parse a query string into an object.
+	
+	*Write a mock API retry function by Promise
+	 Ans:
+		function mockApi(){
+		  return new Promise((resolve, reject)=>{
+			
+			console.log("📡 Calling API...");
+
+			setTimeout(function() {
+			  if (0) {
+				resolve("Success response");
+			  }else{
+				reject("Error response");
+			  }
+			}, 500);
+			
+		  })
+		}
+
+		function retry(func, retryCount, timer){
+		  return new Promise((resolve, reject)=>{
+			
+		   function attempt(currectRetry){
+			  
+			  func().then(resolve).catch((err)=>{
+				
+				  if (currectRetry === 0) {
+					console.log("failed after retry", retryCount);
+					return;
+				  }
+				  
+				  setTimeout(function() {
+					attempt(currectRetry  - 1);
+				  }, timer);
+			  })
+			
+			}
+			attempt(retryCount);
+		  });
+		};
+
+		retry(mockApi, 3, 1000).then((success)=> console.log(success)).catch((err)=> console.log(err));
+
 	
 
 Interview coding question:
