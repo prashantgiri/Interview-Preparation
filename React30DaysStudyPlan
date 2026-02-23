@@ -1,0 +1,799 @@
+DAY 1 — React Mental Model
+	Learn (1h)
+		What React really is
+		SPA rendering vs Angular
+		Virtual DOM vs Change Detection
+		Functional components
+
+	Do:
+		Setup Vite React + TypeScript project
+		Create 3 components (Header, Card, Footer)
+
+	Interview Prep (1h)
+		React vs Angular difference
+		What is Virtual DOM?
+		Why React is fast?
+		SPA vs MPA
+		CSR vs SSR vs SSG
+
+DAY 2 — JSX Deep Dive
+	Learn
+		JSX rules
+		expressions vs statements
+		rendering lists
+		keys importance
+
+	Do:
+		Render product list
+		Add dynamic conditional UI
+		
+	Interview
+		Why keys in React?
+		Why index is bad key?
+		JSX vs HTML
+		How React creates DOM nodes internally?
+
+DAY 3 — Props & Component Reusability
+	Learn
+		Props flow
+		composition vs inheritance
+		children prop
+
+	Do:
+		Reusable Button & Modal component
+		
+	Interview
+		props vs state
+		controlled vs uncontrolled component
+		pure functions in React
+
+DAY 4 — useState (Very Important)
+
+	Learn
+		State batching
+		async updates
+		functional updates
+
+	Do:
+		Counter with edge cases
+		Toggle + form
+
+	Interview
+		Why state not updating immediately?
+		batching in React
+		stale closure problem
+
+DAY 5 — Event Handling
+	Learn
+		Synthetic events
+		event pooling
+		forms handling
+
+	Do:
+		Complex form (validation)
+	
+	Interview
+		React events vs DOM events
+		preventDefault vs stopPropagation
+		controlled inputs
+
+DAY 6 — useEffect Basics
+	Learn
+		lifecycle mapping (Angular lifecycle → React)
+		dependency array
+
+	Do:
+		API call + cleanup
+
+	Interview
+		useEffect execution order
+		infinite loops
+		cleanup function
+
+DAY 7 — Week Revision Project
+
+Build
+Mini TODO App (CRUD + localStorage)
+
+Interview Rapid Fire
+
+render cycle
+
+reconciliation
+
+state vs ref
+
+component re-render causes
+
+WEEK 2 — Hooks Mastery (Core React Power)
+
+This week decides if you pass interviews
+
+DAY 8 — useRef
+
+Learn DOM refs + mutable refs
+Interview: useRef vs useState
+
+DAY 9 — useMemo
+
+Learn memoization & expensive calculations
+Interview: performance optimization
+
+DAY 10 — useCallback
+
+Learn function identity
+Interview: referential equality
+
+DAY 11 — React.memo
+
+Learn re-render prevention
+Interview: PureComponent equivalent
+
+DAY 12 — Custom Hooks
+
+Create useDebounce, useFetch
+Interview: reusable logic patterns
+
+DAY 13 — Context API
+
+Replace Angular services
+Build Theme + Auth context
+Interview: prop drilling vs context
+
+DAY 14 — Hooks Revision Project
+
+Build: Search + Filter dashboard
+
+Interview Topics:
+
+hooks rules
+
+call order importance
+
+closure traps
+
+WEEK 3 — Real World React (Architecture)
+
+Now you become employable
+
+DAY 15 — Routing
+
+React Router v6
+Interview: SPA navigation
+
+DAY 16 — Forms
+
+React Hook Form vs Controlled
+Interview: form performance
+
+DAY 17 — API Handling
+
+Axios + error handling
+Interview: interceptors vs Angular HttpClient
+
+DAY 18 — State Management
+
+Redux Toolkit basics
+Interview: Redux vs Context vs Signals
+
+DAY 19 — Performance
+
+Code splitting + lazy + suspense
+Interview: bundle optimization
+
+DAY 20 — Styling
+
+CSS Modules vs Tailwind vs Styled Components
+Interview: styling strategies
+
+DAY 21 — Week Project
+
+Build: E-commerce UI (cart + routing + API mock)
+
+Interview:
+
+architecture decisions
+
+folder structure
+
+WEEK 4 — Senior Level + Interview Killer Topics
+
+What companies ACTUALLY ask 5–8 yrs exp
+
+DAY 22 — Rendering & Reconciliation
+
+Fiber architecture
+Diffing algorithm
+
+DAY 23 — React Internals
+
+Render vs Commit phase
+
+DAY 24 — Advanced Patterns
+
+HOC vs Hooks vs Render Props
+
+DAY 25 — Testing
+
+React Testing Library basics
+
+DAY 26 — SSR & NextJS Intro
+
+Hydration concept
+
+DAY 27 — Security & Best Practices
+
+XSS in React
+dangerouslySetInnerHTML
+
+DAY 28 — System Design Round
+
+Design scalable component library
+
+DAY 29 — Mock Interview Day
+
+Solve:
+
+build autocomplete
+
+infinite scroll
+
+debounce search
+
+DAY 30 — Final Revision
+
+Full React Q&A revision
+
+Daily Interview Question Themes (Rotate)
+
+You should practice these daily 1 hour:
+
+React Core
+
+render lifecycle
+
+reconciliation
+
+hooks rules
+
+performance
+
+JavaScript (VERY IMPORTANT)
+
+closures
+
+event loop
+
+promises vs async await
+
+debounce/throttle
+
+deep copy
+
+Coding Questions
+
+implement useState
+
+flatten tree
+
+memoize function
+
+LRU cache
+
+pagination logic
+
+Final Output After 30 Days
+
+You’ll be able to:
+
+Crack React interviews
+
+Convert Angular projects to React
+
+Explain internals (senior level)
+
+Solve live coding rounds
+
+If you want, I can also give you Top 120 React Interview Questions list you should revise in last 5 days — that massively boosts selection rate.
+
+yes
+
+Perfect 👍
+Here is your ReactJS Interview Master List (120 Questions)
+If you revise these in the last 5 days → you’ll be ready for 5–10 yrs frontend interviews
+
+I grouped them exactly how interviewers think.
+
+🧠 SECTION 1 — React Core (Most Asked)
+
+What is React?
+
+Why React is called a library not a framework?
+
+What is Virtual DOM?
+
+How React updates DOM efficiently?
+
+What is reconciliation?
+
+What is diffing algorithm?
+
+What are components?
+
+Functional vs Class components
+
+What is JSX?
+
+JSX vs HTML
+
+Why className instead of class?
+
+What are keys in React?
+
+Why index should not be used as key?
+
+Props vs State
+
+What causes re-render?
+
+When React re-renders child components?
+
+How React batching works?
+
+Synthetic events
+
+Controlled vs uncontrolled components
+
+How React handles forms?
+
+🔁 SECTION 2 — Hooks (Very Important)
+
+What are Hooks?
+
+Rules of Hooks
+
+useState working internally
+
+Why state update is async?
+
+Functional update in useState
+
+useEffect lifecycle mapping
+
+Dependency array logic
+
+Infinite loop in useEffect
+
+Cleanup function purpose
+
+useRef vs useState
+
+useMemo vs useCallback
+
+When to use useMemo?
+
+When useCallback harmful?
+
+React.memo vs useMemo
+
+Stale closure problem
+
+Custom hooks advantages
+
+Can hooks run conditionally?
+
+Why hooks rely on call order?
+
+How hooks stored internally?
+
+How to share logic between components?
+
+⚡ SECTION 3 — Performance Optimization (Senior Level)
+
+Why React re-renders?
+
+Prevent unnecessary re-renders
+
+Memoization techniques
+
+Lazy loading components
+
+Code splitting
+
+React Fiber architecture
+
+Render phase vs Commit phase
+
+Concurrent rendering
+
+Suspense working
+
+Hydration in React
+
+Windowing / virtualization
+
+Key prop effect on performance
+
+Expensive calculations optimization
+
+useTransition
+
+useDeferredValue
+
+🌐 SECTION 4 — Routing & API
+
+React Router working
+
+SPA navigation vs traditional navigation
+
+Params vs Query
+
+Protected routes
+
+Lazy route loading
+
+API calling best practice
+
+Axios vs fetch
+
+Error handling strategy
+
+Retry logic
+
+Interceptors concept
+
+🗃️ SECTION 5 — State Management
+
+Context API working
+
+Prop drilling problem
+
+Redux architecture
+
+Flux pattern
+
+Reducer concept
+
+Redux vs Context
+
+Redux Toolkit advantages
+
+Middleware purpose
+
+Thunk vs Saga
+
+Global vs local state
+
+🧪 SECTION 6 — Testing
+
+What to test in React?
+
+React Testing Library vs Enzyme
+
+Unit vs integration test
+
+Mocking API
+
+Testing hooks
+
+🧩 SECTION 7 — Advanced Patterns
+
+HOC
+
+Render props
+
+Compound components
+
+Controlled patterns
+
+Headless components
+
+Portals
+
+Error boundaries
+
+ForwardRef
+
+Imperative handle
+
+Dynamic component rendering
+
+🌍 SECTION 8 — SSR & NextJS
+
+CSR vs SSR vs SSG
+
+SEO in React
+
+Hydration errors
+
+NextJS routing
+
+getServerSideProps vs getStaticProps
+
+Edge rendering
+
+🔐 SECTION 9 — Security & Best Practices
+
+XSS in React
+
+dangerouslySetInnerHTML risks
+
+Sanitization
+
+Environment variables handling
+
+Avoid inline functions?
+
+Folder structure for large apps
+
+🟨 SECTION 10 — JavaScript (VERY IMPORTANT)
+
+Many React interviews fail here
+
+Closures
+
+Event loop
+
+Microtask vs macrotask
+
+Debounce vs throttle
+
+Deep vs shallow copy
+
+Promise chaining
+
+Async await internals
+
+this keyword
+
+Prototypes
+
+Call apply bind
+
+Map vs Object
+
+WeakMap
+
+Immutability
+
+Currying
+
+Memoization
+
+Polyfill of Promise.all
+
+Implement useState
+
+Implement debounce input search
+
+📅 How to Use in Last 5 Days
+
+Day 26 → Core + Hooks
+Day 27 → Performance + Routing
+Day 28 → Redux + Patterns
+Day 29 → JS Deep Dive
+Day 30 → Mock Interview (speak answers aloud)
+
+If you want, next I can also give you:
+👉 Top 25 coding questions React interviews actually ask (with solutions) — these matter more than theory in senior rounds.
+
+give me formatted text to copy with bullets points, bold Days 
+
+Here is a clean copy-paste friendly revision plan 👇
+
+🗓️ React Interview Revision Plan (Last 5 Days)
+Day 26 — React Core + Hooks
+React Core
+
+What is React?
+
+Library vs Framework
+
+Virtual DOM
+
+Reconciliation & Diffing algorithm
+
+Components
+
+JSX vs HTML
+
+Props vs State
+
+Keys in React & why index is bad
+
+Controlled vs Uncontrolled components
+
+What causes re-render
+
+Hooks
+
+Rules of Hooks
+
+useState internal working
+
+Async state update & batching
+
+Functional updates
+
+useEffect lifecycle mapping
+
+Dependency array behavior
+
+Infinite loops in useEffect
+
+Cleanup function
+
+useRef vs useState
+
+useMemo vs useCallback
+
+React.memo
+
+Stale closure problem
+
+Custom hooks
+
+Day 27 — Performance + Routing + API
+Performance
+
+Prevent unnecessary re-renders
+
+Memoization techniques
+
+Lazy loading
+
+Code splitting
+
+React Fiber
+
+Render vs Commit phase
+
+Concurrent rendering
+
+Suspense & fallback
+
+Hydration
+
+Windowing / virtualization
+
+useTransition & useDeferredValue
+
+Routing
+
+React Router working
+
+SPA navigation
+
+Params vs Query
+
+Protected routes
+
+Lazy routes
+
+API Handling
+
+Axios vs fetch
+
+Error handling
+
+Retry logic
+
+Interceptors
+
+Day 28 — State Management + Patterns
+State Management
+
+Context API
+
+Prop drilling
+
+Redux architecture
+
+Flux pattern
+
+Reducers
+
+Redux vs Context
+
+Redux Toolkit
+
+Middleware
+
+Thunk vs Saga
+
+Global vs Local state
+
+Advanced Patterns
+
+HOC
+
+Render props
+
+Compound components
+
+Controlled patterns
+
+Headless components
+
+Portals
+
+Error boundaries
+
+ForwardRef
+
+Imperative handle
+
+Dynamic component rendering
+
+Day 29 — JavaScript Deep Dive (Most Important)
+
+Closures
+
+Event loop
+
+Microtask vs Macrotask
+
+Debounce vs Throttle
+
+Deep vs Shallow copy
+
+Promise chaining
+
+Async/Await internals
+
+this keyword
+
+Prototypes
+
+call / apply / bind
+
+Map vs Object
+
+WeakMap
+
+Immutability
+
+Currying
+
+Memoization
+
+Polyfill of Promise.all
+
+Implement useState
+
+Implement debounce search
+
+Day 30 — Mock Interview Simulation
+React Architecture Questions
+
+Explain React rendering cycle
+
+How React updates DOM
+
+When component re-renders
+
+How to optimize large app
+
+Coding Round Practice
+
+Autocomplete search with debounce
+
+Infinite scroll
+
+Pagination logic
+
+Flatten nested tree
+
+LRU cache
+
+Memoize function
+
+Speak Answers Aloud (Very Important)
+
+Explain hooks without memorizing
+
+Explain reconciliation like teaching junior
+
+Explain performance optimization decisions
+
+Explain project architecture you built

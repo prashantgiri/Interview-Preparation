@@ -1,0 +1,157 @@
+	Data structure in Js
+
+Problem Solving Approach
+	* Understand the problem
+	* Explore concrete example
+	* Break It down
+	* Solve / Simplify
+	* Look back and refactor
+
+Problem Solving Pattern
+	
+	SOME PATTERNS...
+
+		Frequency Counter
+			This pattern uses objects or sets to collect values/frequencies of values
+			This can often avoid the need for nested loops or O(N^2) operations with arrays / strings
+
+		Multiple Pointers
+
+		Sliding Window
+
+		Divide and Conquer
+
+		Dynamic Programming
+
+		Greedy Algorithms
+
+		Backtracking
+
+		Many more!
+
+
+	1. Sliding window	
+		Ex: //find maximum sum of n number of elements in an array ex arr=[1,2,3,4] num=2  o/p => 7
+		
+			solutions 1: heavy more time taking O(n2)
+			function maxSubarraySum(arr, num) {
+			  if ( num > arr.length){
+				return null;
+			  }
+			  var max = -Infinity;
+			  for (let i = 0; i < arr.length - num + 1; i ++){
+				temp = 0;
+				for (let j = 0; j < num; j++){
+				  temp += arr[i + j];
+				}
+				if (temp > max) {
+				  max = temp;
+				}
+			  }
+			  return max;
+			}
+
+			maxSubarraySum([2,6,9,2,1,8,5,6,3],3) //=> 19
+
+
+		solutions 2. less time taking O(n)
+		function maxSubarraySum(arr, num){
+		  let maxSum = 0;
+		  let tempSum = 0;
+		  if (arr.length < num) return null;
+
+		  for (let i = 0; i < num; i++) {
+			maxSum += arr[i];
+		  }
+
+		  tempSum = maxSum;
+
+		  for (let i = num; i < arr.length; i++) {
+			tempSum = tempSum - arr[i - num] + arr[i];
+			maxSum = Math.max(maxSum, tempSum);
+		  }
+		  return maxSum;
+		}
+
+		maxSubarraySum([2,6,9,2,1,8,5,6,3],3)  //=> 19
+
+
+Sorting:
+	
+	1. Quick sort  O(n log n);
+		
+		Each recursion operation takes O(n) time.
+		there fore avg time complexity O(n log n)
+	
+		quickSort(arr, low, high){
+			
+			if(arr.length <= 1) return arr;
+			
+			pivote = arr[arr.length - 1];  //imp step to remember
+			left = [];
+			righ =[];
+			
+			for(let i = 0; i<arr.length-1; i++){
+				if(arr[i] < pivote) left.push(arr[i]);
+				else right.push(arr[i]);
+			}
+			
+			return [...quickSort(left), pivote, ...quickSort(right)];
+		}
+		
+
+Sorting
+	2.Binary Search Pseudocode
+
+		This function accepts a sorted array and a value
+		Create a left pointer at the start of the array and a right pointer at the end of the array
+		While the left pointer comes before the right pointer:
+		Create a pointer in the middle
+			If you find the value you want, return the index
+			If the value is too small, move the left pointer up
+			If the value is too large, move the right pointer down
+			If you never find the value, return -1
+
+		function binarySearch(arr, target){
+			let start = 0;
+			let end = arr.length - 1;
+			
+			while(start < end){
+				const mid = Math.floor((start+end)/2);
+				
+				if(arr[mid] === target) return mid;
+				
+				if(arr[mid] < target){
+					start = mid + 1;
+				}else{
+					end = mid - 1;
+				}
+			}
+			
+			return -1; //not found
+		}
+		
+		console.log(binarySearch([1,2,3,4,5,6],5));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
