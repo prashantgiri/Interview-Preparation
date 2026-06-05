@@ -704,7 +704,21 @@ Q  what is pollyfills in Js and create pollyfill for map() function
 		  for (let i = 0; i < this.length; i++) acc = cb(acc, this[i]);
 		  return acc;
 		};
+	
+	//bind	
+	  Function.prototype.myBind = function (context, ...args1) {
+		const fn = this;
+		return function (...args2) {
+		  return fn.apply(context, [...args1, ...args2]);
+		};
+	  };
 
+	  function greet(name){
+		console.log(`Hi ${name}, nice to meet you..`);
+	  }
+
+	  const gn = greet.myBind(this,'Prashant');
+	  gn();
 
 Angular :==============================================================================================================================================
 
@@ -1977,6 +1991,98 @@ What are the different types of Selectors in CSS?
 	General Sibling Combinator: 	h2 ~ p {}
 	Adjacent Sibling Combinator:	p + p {}
 	Attribute Selector:				input [type=”text”] {}
+
+what is BEM methodology in CSS ?
+		**BEM** stands for **Block Element Modifier**.
+		It is a popular naming convention for CSS classes that helps create reusable, maintainable, and scalable front-end code.
+	Think of it as a set of rules that helps your entire team understand the relationship between your HTML and CSS just by looking at the class names.
+	Here is a breakdown of the three components:
+
+### 1. The Core Components
+	- **Block:** A standalone, reusable component.
+		- *Meaning:* A parent or container.
+		- *Naming:* `block-name` or `block`
+		- *Examples:* `menu`, `header`, `button`, `card`.
+
+	- **Element:** A part of a block that has no standalone meaning. It is semantically tied to its block.
+		- *Meaning:* A child of a block.
+		- *Naming:* `block-name__element-name` (two underscores)
+		- *Examples:* `menu__item`, `button__icon`, `card__title`.
+
+	- **Modifier:** A flag on a block or element used to change appearance, behavior, or state.
+		- *Meaning:* A variation or specific state.
+		- *Naming:* `block-name--modifier` or `block__element--modifier` (two hyphens)
+		- *Examples:* `button--large`, `menu__item--active`, `card--featured`.
+
+
+### 2. Visual Example
+
+Let's build a "Card" component.
+
+#### The HTML (using BEM classes)
+	<div class="card card--featured">  <!-- Block with Modifier -->
+	  <img src="image.jpg" alt="Preview" class="card__image">  <!-- Element -->
+	  <h2 class="card__title">Hello World</h2>  <!-- Element -->
+	  <p class="card__description">This is a description.</p>  <!-- Element -->
+	  <button class="card__button card__button--large">Click</button>  <!-- Element with Modifier -->
+	</div>
+
+	#### The CSS (following BEM)
+	```css
+	/* Block */
+	.card {
+	  border: 1px solid gray;
+	  padding: 1rem;
+	}
+
+	/* Element */
+	.card__title {
+	  font-size: 1.2rem;
+	  margin: 0 0 0.5rem 0;
+	}
+
+	.card__description {
+	  color: gray;
+	}
+
+	/* Modifier for the Block */
+	.card--featured {
+	  border-color: gold;
+	  box-shadow: 0 0 10px gold;
+	}
+
+	/* Modifier for the Element */
+	.card__button--large {
+	  font-size: 1.5rem;
+	  padding: 1rem 2rem;
+	}
+
+	---
+
+### 3. Key Benefits
+
+	1.  **Self-Documenting:** You can look at a class like `form__input--error` and immediately understand:
+		- It belongs to the `form` (Block).
+		- It is an input field (Element).
+		- It is currently in an error state (Modifier).
+	2.  **Avoids Nesting Headaches:** In BEM, you don't need to use long descendant selectors (e.g., `.card .button .icon`). Every element is flat.
+		- *Traditional:* `card .button .icon`
+		- *BEM:* `card__button-icon` (or a separate block)
+	3.  **Reusability:** You can move a `card` to a different part of the page without worrying that the CSS will break because the styles aren't dependent on a specific parent hierarchy.
+	4.  **Team Consistency:** It provides a strict framework, so every developer on a project writes CSS the same way.
+
+### 4. Common Pitfalls to Avoid
+
+	- **Don't create element chains.** BEM is not a hierarchy visualizer.
+		- **Bad:** `card__wrapper__title__icon`
+		- **Good:** `card__icon` (If it's inside the card, it's just an element of the card, regardless of how deep it is).
+	- **Don't over-modularize.** If an element is only ever used inside one specific block and has no potential for reuse elsewhere, it's fine to keep it as an element rather than creating a new block.
+
+In summary, **BEM is a system of rules that makes CSS less global and more modular**, 
+solving the problem of styles accidentally affecting other parts of your website as it grows.
+
+
+
 	
 Create a triangle using css ?
 		- Using border top right bottom left we can create
@@ -2226,46 +2332,6 @@ Study :
 	pseudo and non pseudo class
 	
 
-JavaScript Coding  : 
-	Higher order methods : 
-	Solve coding question
-	https://www.fullstack.cafe/interview-questions/javascript
-	
-Summary : 
-* What is two way data binding?
-* What is DI and how angular handling DI?
-* What is lazy loading and how can we achieve this?
-* What is content Projection?
-* What are observables and promises which one to use in angular?
-* How do u transfer the data between components?
-* What is ng-content?
-* What is the usagle of ngOnChanges lifecycle hooks?
-* What is the difference between constructor and ngOnInit?
-* Can we write a class in angular without using a constructor?
-* What is difference between attribute and structural directives?
-* Which module we use in our module to use ngIf or ngFor?  -  { CommonModue } from '@angular/comman'
-* What are the angular provided modules we use in our app?
-* What is the difference between form builder and form control?
-* Let suppose we have a text field and that is name, and we have to setup a validation to accept only 5 chars so how can we achieve this by template driven forms. If we want to show the error message then how can we do it.
-* How do you set the value of form control in ts file?
-* Suppose we have an API url so how can we use it to get the data?
-* What is the use of httpInterceptor Class?
-* Which method of httpClient u will use to get the data?
-* If we get the response from the API and want to filter the result what would be another function from angular we have rather that forEach?
-* Have you used rxjs operator in your application?
-* Let suppose we have three API urls as per first response, we need to call second and as per second response we need to call third API. if there would we error then on third api call we need to show the error, what would be the best approach for this. Can we use rxjs operator in this issue?
-* What is the difference between template driven form and reactive based approach?
-* What is router outlet.
-* What is the difference between forChild and forRoot?
-* What is pathMatch in route?
-* What are the guards? And what is canLoad guard?
-* Have u written test cases in angular?
-How can we deploy our web app?
-What is PWA? Web Push Notifications | Service Worker
-How can we use authentication in Routes?
-What are the pipes and how can create custom pipes?
-How can we use common css files for multiple components?
-
 Usefull links to read angular-interview-questions
 https://github.com/sudheerj/angular-interview-questions#how-do-you-specify-angular-template-compiler-options
 https://www.interviewbit.com/angular-interview-questions/
@@ -2282,8 +2348,6 @@ Coding questions:
 		b = next;
 	  }
 	  
-
-
 
 	array duplicate
 		new Set(arry);
@@ -2788,7 +2852,6 @@ Continuous Education
 
 JavaScript Coding  : 
 	Higher order methods : 
-	
 	Solve coding question
 	https://www.fullstack.cafe/interview-questions/javascript
 	
@@ -2830,3 +2893,74 @@ How can we use common css files for multiple components?
 Usefull links to read angular-interview-questions
 https://github.com/sudheerj/angular-interview-questions#how-do-you-specify-angular-template-compiler-options
 https://www.interviewbit.com/angular-interview-questions/
+
+Amazon – ~85% rounds are (DSA + System Design)
+Airbnb – ~75% (DSA + System Design)
+Stripe – ~70% (DSA + System Design)
+Microsoft – ~80% (DSA + System Design)
+
+If you want to clear any top-tier Frontend Engineer interview, the formula is simple: DSA + System Design
+
+Here are some of the most asked questions on these topics:
+
+𝗗𝗦𝗔
+- Implement LRU Cache
+- Find Median from Data Stream
+- Merge K Sorted Lists
+- Word Ladder (shortest transformation)
+- Kth Largest Element in a Stream
+- Top K Frequent Elements
+- Maximum Subarray Sum (Kadane + variations)
+- Sliding Window Maximum
+- Longest Substring Without Repeating Characters
+- Minimum Window Substring
+- Lowest Common Ancestor (Binary Tree)
+- Serialize & Deserialize Binary Tree
+- Number of Islands
+- Course Schedule (Topological Sort)
+- Coin Change (DP)
+- Task Scheduler with Cooldown
+- Trapping Rain Water
+- Design HashMap
+
+𝗙𝗿𝗼𝗻𝘁𝗲𝗻𝗱 𝗠𝗮𝗰𝗵𝗶𝗻𝗲 𝗖𝗼𝗱𝗶𝗻𝗴 / 𝗣𝗿𝗮𝗰𝘁𝗶𝗰𝗮𝗹 𝗥𝗼𝘂𝗻𝗱𝘀 
+- Build a Todo / Task Management App
+- Build a Kanban Board (drag & drop)
+- Build a Search with Autocomplete & Debouncing
+- Build a Pagination / Infinite Scroll System
+- Build a Real-time Chat UI
+- Build a File Explorer (like VS Code)
+- Build a Calendar / Scheduler Application
+- Build a Shopping Cart with Checkout Flow
+- Build a Dashboard with Charts & Filters
+- Build a Notification / Toast System
+- Build a Form Builder with Validation
+- Build a Feature Flag / Toggle System
+- Build a Responsive Image Gallery
+- Implement Virtual Scrolling List
+- Build a Rich Text Editor
+- Create a Drag-and-Drop File Uploader
+- Build a Multi-Step Wizard Form
+
+𝗙𝗿𝗼𝗻𝘁𝗲𝗻𝗱 𝗦𝘆𝘀𝘁𝗲𝗺 𝗗𝗲𝘀𝗶𝗴𝗻
+- Design a Scalable Chat Application UI (WhatsApp/Slack)
+- Design a URL Shortener Dashboard (Bitly/TinyURL)
+- Design an API Rate Limiter UI
+- Design a Distributed Cache Admin Panel
+- Design a Notification System UI (Email/SMS/Push)
+- Design a Ride-Hailing Passenger/Driver App (Uber/Ola)
+- Design a Video Streaming Player & Dashboard (YouTube/Netflix)
+- Design a Payment Gateway Checkout UI (Stripe/Razorpay)
+- Design a News Feed System (Infinite scroll + personalization)
+- Design a Search Autocomplete & Filters System
+- Design a Logging & Monitoring Dashboard
+- Design a File Storage Web App (Google Drive)
+- Design an E-commerce Checkout Flow
+- Design a Leaderboard & Gaming Dashboard
+- Design a Job Scheduler UI
+- Design a Feature Flag Management Console
+- Design a Metrics & Analytics Platform (charts + real-time)
+- Design a Collaborative Whiteboard App
+- Design a Real-time Multiplayer Game Interface
+- Design a Content Recommendation Carousel/UI
+
